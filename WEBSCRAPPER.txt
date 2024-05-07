@@ -1,0 +1,42 @@
+WEBSCRAPPER
+#Create a review scrapper for any ecommerce website to fetch real time comments, reviews, ratings, comment tags, customer name using Python
+
+!pip install bs4
+
+!pip install requests
+
+from bs4 import BeautifulSoup
+import bs4
+import requests
+import pandas as pd
+
+request1 = requests.get("https://www.amazon.com/GoPro-HERO12-Black-Waterproof-Stabilization/dp/B0CDDY8F9L/ref=sr_1_3?dib=eyJ2IjoiMSJ9.tdrNeFgZKWOI_mMeamikyW")
+request1
+
+request1.content
+
+soup = bs4.BeautifulSoup(request1.text)
+soup
+
+#Fetching the reviews and comments
+reviews =soup.find_all('div',{'class':'a-expander-content reviewText review-text-content a-expander-partial-collapse-content'})
+for review in reviews:
+    print(review.get_text() + "\n\n")
+    
+#Average overall Rating
+ratings =soup.find('span',{'class' : 'a-size-base a-nowrap'}).get_text();
+print(ratings)
+
+#Individual Ratings
+individual_ratings = soup.findAll('i',{'class' : 'a-icon a-icon-star a-star-5 review-rating'});
+for indi_rating in individual_ratings:
+    print(indi_rating.get_text() + "\n")
+
+#Fetching Tags
+tags =soup.find('th',{'class' : 'a-color-secondary a-size-base prodDetSectionEntry'}).get_text();
+tags
+
+#Fetching the customer name
+customer_name = soup.findAll('span',{'class':'a-profile-name'});
+for cust_name in customer_name:
+    print(cust_name.get_text() + "\n")

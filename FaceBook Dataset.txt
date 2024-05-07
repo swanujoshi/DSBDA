@@ -1,0 +1,40 @@
+import pandas as pd
+import numpy as np
+
+df=pd.read_csv(r"location",sep=";")
+df
+
+df.describe()
+
+df.shape
+
+#subset 1
+df1=df[['Page total likes','Category','Post Month','Post Weekday']].loc[0:15]
+df1
+
+#subset 2
+df2=dfdf[['Page total likes','Category','Post Month','Post Weekday']].loc[16:30]
+df2
+
+#subset3
+df3=df[['Page total likes','Category','Post Month','Post Weekday']].loc[31:50]
+df3
+
+Merging 
+merging=pd.concat([df1,df2,df3])
+merging[0:20]
+
+Sorting 
+sort_values=df.sort_values('Page total likes',ascending=False)
+sort_values
+
+Transposing Data
+transposing=df.transpose()
+transposing
+
+#Shaping 
+shaping=df.shape
+shaping
+
+reshaping_arr=np.array([1,2,3,4,5,6,7,8,9,10])
+reshaping_arr.reshape(5,2)

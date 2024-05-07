@@ -1,0 +1,96 @@
+Air Quality and Heart disease dataset
+
+# . Perform the following operations using Python on the Air quality and Heart Diseases data sets
+a. Data cleaning
+b. Data integration
+c. Data transformation
+d. Error correcting
+e. Data model building
+
+=>
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+import random as rd
+
+ds=pd.read_csv("Air_quality.csv")
+ds
+
+df=pd.read_csv("data.csv",encoding="ISO=8859-1")
+df
+
+#Data Cleaning
+
+ds.head()
+df.head()
+
+ds.info()
+df.info()
+
+ds.isnull().sum()
+df.isnull().sum()
+
+ds.dropna()
+df.dropna()
+
+ds1=ds.loc[111:999,['state', 'location', 'so2', 'rspm']]
+ds2=ds.iloc[[1,3,5,4,22,43,54,67,7,8,9,50,10,11]]
+
+ds1
+ds2
+
+# Data integration
+ds_integration=pd.concat([ds1,ds2])
+ds_integration
+
+#Data transformation
+ds_integration.transpose()
+
+ds.drop(columns = "so2")
+
+#Error correcting
+ds.melt()
+
+ds_merged=pd.concat([ds,df])
+ds_merged
+
+df['ca'].unique()
+
+df.ca.value_counts()
+
+#Data model building
+from sklearn import linear_model, metrics
+X=df[["age"]]
+Y=df[["thal"]]
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, Y_train, Y_test=train_test_split(X,Y,test_size=0.2,random_state=1)
+
+len(X_train)
+
+len(X_test)
+
+ds.shape
+
+reg=linear_model.LinearRegression()
+
+print(X_train)
+
+model=reg.fit(X_train,Y_train)
+
+r_sq=reg.score(X_train,Y_train)
+
+print("determination coefficient:",r_sq)
+
+print("intercept:",model.intercept_)
+
+print("slope:",model.coef_)
+
+Y_pred=model.predict(X_test)
+
+print('predicted response: ',Y_pred,sep='\n')
+
+
+
+

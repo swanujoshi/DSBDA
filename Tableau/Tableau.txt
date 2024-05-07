@@ -1,0 +1,59 @@
+Tableau
+
+(Adult dataset)
+sheet 1 -: Column=age
+	   Rows=Age
+
+	   capital Gain 
+	   capital loss
+
+(Name:Histogram ,1d linear data visualization)
+
+sheet 2 -: columns=longitude
+	   Rows=Latitude
+	  
+	   capital Gain 
+	   capital loss
+	   DSBDA_8A_adult
+	   Hours-per-week
+(Name:Map 2d planer data visualization)
+
+sheet 3 -: 
+
+ 	   capital Gain 
+	   capital Gain
+	   Occupation
+	   capital Loss
+
+(Name:Tree Map ,2D planer data visualization )
+
+sheet 4 -:
+         
+      
+          Relationship
+	  capital Gain
+	  Marital-status
+(Name:Pie charts , 2d planer data visualization)
+
+
+(iris Dataset)
+
+Sheet 1 -:
+
+	cloumn=petal width
+	Rows=petal length
+
+	species in colors
+        Id  in details
+(Name:Scatter plot (Temporal Data Visualization))
+
+Sheet 2 -:
+
+	columns=specics
+	Rows= petal length ,petal width,sepal length,sepalwidth 
+
+	species
+
+(Name:Horizontal bars (Temporal Data Visualization)
+
+
